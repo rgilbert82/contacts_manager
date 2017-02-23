@@ -1,0 +1,19 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class='well form-group form_container'>
+  <%= form_for @note do |f| %>
+    <div class='control-group form_field'>
+      <%= f.label :title, class: 'form_label' %>
+      <%= f.text_field :title , class: 'form-control'%>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :body, class: 'form_label' %>
+      <%= f.text_area :body, class: 'form-control', rows: 5 %>
+    </div>
+    <hr class='form_break'/>
+    <div class='control-group'>
+      <%= f.submit (@note.new_record? ? 'Submit' : 'Update'), class: 'btn btn-primary form_button submit_button' %>
+      <%= link_to 'Cancel', (@note.new_record? ? notes_path : note_path(@note)), class: 'btn btn-primary form_button cancel_button' %>
+    </div>
+  <% end %>
+</div>

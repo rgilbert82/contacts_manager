@@ -1,0 +1,26 @@
+<%= render 'shared/content_title', {title: @event.title} %>
+
+<div class="well span8 show_content">
+  <h4><strong class="header_strong">Location:</strong> <%= @event.location %></h4>
+  <h4><strong class="header_strong">Starts:</strong> <%= display_datetime(@event.start_time) %></h4>
+  <% if !start_and_end_date_equal?(@event) %>
+    <h4><strong class="header_strong">Ends:</strong> <%= display_datetime(@event.end_time) %></h4>
+  <% end %>
+  <% if @event.description %>
+    <hr/ class="show_break">
+    <p><%= @event.description %></p>
+  <% end %>
+  <hr/ class="show_break">
+  <h5><small><span class='created_span'>Created:</span> <%= display_datetime(@event.created_at) %></small></h5>
+  <% if @event.created_at != @event.updated_at %>
+    <h5><small><span class='created_span'>Updated:</span> <%= display_datetime(@event.updated_at) %></small></h5>
+  <% end %>
+</div>
+
+
+<div>
+  <%= link_to 'Edit Event', edit_event_path, class: 'btn btn-default edit_button' %>
+  <%= link_to 'Delete Event', @event,  method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default delete_button' %>
+</div>
+
+<div class='trigger_events'></div>

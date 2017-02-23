@@ -1,0 +1,9 @@
+<p class='lead general_title'>
+  <%= title %>
+  <% if defined? todo %>
+    <% if !todo.completed %>
+      <small class="header-todo-status">[INCOMPLETE]</small>
+    <% end %>
+  <% end %>
+  <hr/>
+</p>

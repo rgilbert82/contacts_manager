@@ -1,0 +1,17 @@
+<%= render 'shared/content_title', title: "Contacts" %>
+
+<div>
+  <%= link_to 'Add New Contact', new_contact_path %>
+</div>
+
+<% if @contacts.length == 0 %>
+  <h4 class='nothing_here'>You have no contacts</h4>
+<% end %>
+
+<div class="contacts_wrapper">
+  <% @contacts.each do |contact| %>
+    <%= render 'contact', contact: contact %>
+  <% end %>
+</div>
+
+<div class='trigger_contacts'></div>

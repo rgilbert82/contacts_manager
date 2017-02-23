@@ -1,0 +1,41 @@
+<%= render 'shared/content_title', title: 'Todos' %>
+
+<div>
+  <%= link_to 'Add New Todo', new_todo_path %>
+</div>
+
+<% if @todos.length == 0 %>
+  <h4 class='nothing_here'>You have no todos</h4>
+<% end %>
+
+<ul class='years_list'>
+  <% @todos.reverse.map {|t| t.start_time.year }.uniq.each do |year| %>
+  <li>
+    <h3><%= year %></h3>
+    <ul class='months_list'>
+      <% @todos.select {|t| t.start_time.year == year }.map do |y|
+                            y.start_time.month
+                          end.uniq.each do |month| %>
+        <h4><%= Date::MONTHNAMES[month] %></h4>
+        <ul class='events_list'>
+          <% @todos.select {|t| t.start_time.year == year &&
+                                t.start_time.month == month}.each do |todo| %>
+            <li class='well event_container'>
+              <h4><%= link_to todo.title, todo_path(todo) %></h4>
+              <small><b>Due: </b><%= display_datetime(todo.start_time) %></small>
+              <hr/ class="show_break">
+              <% if todo.completed %>
+                <div><%= link_to 'Completed', toggle_todo_path(todo), method: :post, class: 'btn btn-default incomplete_button' %></div>
+              <% else %>
+                <div><%= link_to 'Incomplete', toggle_todo_path(todo), method: :post, class: 'btn btn-primary complete_button' %></div>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+
+<div class='trigger_todos'></div>

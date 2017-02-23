@@ -1,0 +1,22 @@
+<%= render 'shared/content_title', title: @contact.name %>
+
+<div class="well span8 show_content">
+  <h4><strong class="header_strong">Email: </strong><a href="mailto:<%= @contact.email %>"><%= @contact.email %></a></h4>
+  <h4><strong class="header_strong">Phone: </strong><%= format_phone_number(@contact.phone) %></h4>
+  <% if @contact.notes %>
+    <hr/ class="show_break">
+    <p><%= @contact.notes %></p>
+  <% end %>
+  <hr/ class="show_break">
+  <h5><small><span class='created_span'>Created:</span> <%= display_datetime(@contact.created_at) %></small></h5>
+  <% if @contact.created_at != @contact.updated_at %>
+    <h5><small><span class='created_span'>Updated:</span> <%= display_datetime(@contact.updated_at) %></small></h5>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Edit Contact', edit_contact_path(@contact), class: 'btn btn-default edit_button' %>
+  <%= link_to 'Delete Contact', @contact, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-default delete_button' %>
+</div>
+
+<div class='trigger_contacts'></div>

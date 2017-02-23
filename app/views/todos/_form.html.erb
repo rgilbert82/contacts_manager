@@ -1,0 +1,23 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class='well form-group form_container'>
+  <%= form_for @todo do |f| %>
+    <div class='control-group form_field'>
+      <%= f.label :title, class: 'form_label' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :description, class: 'form_label' %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :start_time, 'Due Date', class: 'form_label' %>
+      <%= f.datetime_select :start_time, {}, {class: 'form-control date_select'} %>
+    </div>
+    <hr/>
+    <div class='control-group'>
+      <%= f.submit (@todo.new_record? ? 'Submit' : 'Update'), class: 'btn btn-primary form_button submit_button' %>
+      <%= link_to 'Cancel', (@todo.new_record? ? todos_path : todo_path(@todo)), class: 'btn btn-primary form_button cancel_button' %>
+    </div>
+  <% end %>
+</div>

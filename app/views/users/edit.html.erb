@@ -1,0 +1,5 @@
+<%= render 'shared/content_title', title: 'Edit Account Info' %>
+
+<%= render 'form' %>
+
+<%= link_to '[Delete Account]', @user,  method: :delete, data: {confirm: 'Are you sure?'} %>

@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <%= link_to "", root_path, {class: "glyphicon glyphicon-leaf", aria_hidden: "true"} %>
+      <h2 class='navbar-h2'><%= link_to "PLANNER", root_path, :class => 'brand' %></h2>
+    </div>
+    <div class='navbar_link_list'>
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <li class='navbar_contacts'>
+            <%= link_to "Contacts (#{current_user.contacts.size})", contacts_path %>
+          </li>
+          <li class='navbar_notes'>
+            <%= link_to "Notes (#{current_user.notes.size})", notes_path %>
+          </li>
+          <li class='navbar_events'>
+            <%= link_to "Events (#{current_user.events.size})", events_path %>
+          </li>
+          <li class='navbar_todos'>
+            <%= link_to "Todos (#{current_user.todos.size})", todos_path %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <% if logged_in? %>
+      <div class='btn-group nav_item'>
+        <%= link_to('', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown') do %>
+          <%= current_user.username %>
+          <span class='caret'></span>
+        <% end %>
+        <ul class='dropdown-menu'>
+          <li>
+            <%= link_to edit_user_path(current_user) do %>
+              <i class='icon-pencil'></i>
+              Edit Account
+            <% end %>
+          </li>
+          <li>
+            <%= link_to logout_path(current_user) do %>
+              <i class='icon-circle-arrow-left'></i>
+              Logout
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    <% else # logged out %>
+      <div class='nav_item'>
+        <%= link_to 'Register', register_path, class: 'btn btn-default btn-small edit_button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

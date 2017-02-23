@@ -1,0 +1,26 @@
+<%= render 'shared/content_title', {title: @todo.title, todo: @todo} %>
+
+<div class="well span8 show_content">
+  <h4><strong class="header_strong">Due Date:</strong> <%= display_datetime(@todo.start_time) %></h4>
+  <% if @todo.description %>
+    <hr/ class="show_break">
+    <p><%= @todo.description %></p>
+  <% end %>
+  <hr/ class="show_break">
+  <h5><small>Created: <%= display_datetime(@todo.created_at) %></small></h5>
+  <% if @todo.created_at != @todo.updated_at %>
+    <h5><small>Updated: <%= display_datetime(@todo.updated_at) %></small></h5>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Edit Todo', edit_todo_path, class: 'btn btn-default edit_button todo_button' %>
+  <% if @todo.completed %>
+    <%= link_to 'Mark as Incomplete', toggle_todo_path(@todo), method: :post, class: 'btn btn-default incomplete_button todo_button' %>
+  <% else %>
+    <%= link_to 'Mark as Complete', toggle_todo_path(@todo), method: :post, class: 'btn btn-default complete_button todo_button' %>
+  <% end %>
+  <%= link_to 'Delete Todo', @todo,  method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default delete_button todo_button' %>
+</div>
+
+<div class='trigger_todos'></div>

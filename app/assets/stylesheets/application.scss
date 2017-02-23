@@ -1,0 +1,520 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require simple_calendar
+ */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url(#{$icon-font-path}#{$icon-font-name}.ttf) format('truetype');
+  src: url(#{$icon-font-path}#{$icon-font-name}.eot?#iefix)
+  format('embedded-opentype'),
+  url(#{$icon-font-path}#{$icon-font-name}.woff) format('woff'),
+  url(#{$icon-font-path}#{$icon-font-name}.ttf) , format('truetype'),
+  url(#{$icon-font-path}#{$icon-font-name}.svg##{$icon-font-svg-id})
+  format('svg');
+}
+
+textarea {
+  resize: none;
+}
+
+.navbar .nav > li > a.brand {
+  padding-left: 0px;
+}
+
+.nav {
+  display: inline-block;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+.quiet {
+  color: #ababab;
+}
+
+div.nav_item {
+  margin-left: 25px;
+  float: right;
+  height: 50px;
+}
+
+div.nav_item a {
+  margin: 5px 0;
+  padding: 0 12px;
+  line-height: 38px;
+}
+
+.label, .badge  {
+  a, a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+.header-duedate {
+  margin-left: 20px;
+  font-size: 14px;
+}
+
+.calendar_event_link {
+  color: tomato;
+}
+
+.calendar_note_link {
+  color: forestgreen;
+}
+
+.calendar_todo_link {
+  color: #8b008b;
+}
+
+.date_bold {
+  font-weight: normal;
+}
+
+.navbar-h2 {
+  margin: 0 20px 0 0 ;
+  display: inline-block;
+  line-height: 50px;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+.navbar-h2 a:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #23527c;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #337ab7;
+  padding: 0;
+  margin: 15px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #23527c;
+  border-bottom: 1px solid #23527c;
+  margin-bottom: 14px;
+}
+
+.form_field {
+  margin-bottom: 10px;
+}
+
+.form_break, .show_break {
+  border-color: #cccccc;
+}
+
+.form_button {
+  width: 30%;
+}
+
+.form_container {
+  padding-left: 50px;
+  padding-right: 50px;
+  width: 700px;
+}
+
+.form_label {
+  width: 100%;
+  letter-spacing: 1.2px;
+}
+
+.date_select {
+  display: inline-block;
+}
+
+#todo_start_time_1i,
+#event_start_time_1i,
+#event_end_time_1i {
+  width: 70px;
+}
+
+#todo_start_time_2i,
+#event_start_time_2i,
+#event_end_time_2i {
+  width: 100px;
+}
+
+#todo_start_time_3i,
+#event_start_time_3i,
+#event_end_time_3i,
+#todo_start_time_4i,
+#event_start_time_4i,
+#event_end_time_4i,
+#todo_start_time_5i,
+#event_start_time_5i,
+#event_end_time_5i {
+  width: 50px;
+}
+
+.timezone_select {
+  width: 300px;
+}
+
+.glyphicon-leaf {
+  margin-right: 15px;
+  font-size: 24px;
+  color: #337ab7;
+  line-height: 50px;
+  vertical-align: bottom;
+}
+
+.glyphicon-leaf:hover {
+  text-decoration: none;
+}
+
+.dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+.general_title {
+  font-size: 22px;
+  letter-spacing: 1.2px;
+}
+
+.calendar-title {
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 100;
+  letter-spacing: 1.5px;
+}
+
+.calendar-heading {
+  position: relative;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.calendar-heading a {
+  float: right;
+  margin-top: 7px;
+  display: inline-block;
+}
+
+.calendar-heading a:first-child {
+  float: left;
+}
+
+.simple-calendar .table,
+.simple-calendar .table th,
+.simple-calendar .table td,
+ {
+  border: 1px solid #8DC9FE;
+}
+
+.created_span {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.contacts_wrapper {
+  margin: 20px -20px 0 0 ;
+}
+
+.contact_container {
+  display: inline-block;
+  width: 220px;
+  margin-right: 20px;
+}
+
+.show_content {
+  width: 700px;
+}
+
+.show_content h4 {
+  font-weight: normal;
+  letter-spacing: 1.2px;
+}
+
+.show_content h4 .header_strong {
+  width: 15%;
+  display: inline-block;
+}
+
+.show_content p {
+  font-size: 16px;
+}
+
+.show_content h5 {
+  margin: 0;
+}
+
+.cancel_button:hover {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  color: #fff;
+}
+
+.edit_button:hover {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  color: #fff;
+}
+
+.delete_button:hover {
+  background-color: #b00b00;
+  border-color: #ac2925;
+  color: #fff;
+}
+
+.complete_button:hover,
+.submit_button:hover,
+.register_button:hover {
+  background-color: #66CA66;
+  border-color: #50B950;
+  color: #fff;
+}
+
+.incomplete_button:hover {
+  background-color: #ec971f;
+  border-color: #d58512;
+  color: #fff;
+}
+
+.years_list, .months_list, .events_list {
+  list-style: none;
+}
+
+.years_list h3,
+.years_list h4 {
+  letter-spacing: 1.2px;
+}
+
+.months_list h4 {
+  font-weight: normal;
+}
+
+.event_container {
+  width: 575px;
+}
+
+.header-todo-status {
+  margin-left: 10px;
+  line-height: 20px;
+  vertical-align: middle;
+  font-size: 14px;
+  color: #337ab7;
+}
+
+.navbar_item_active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nothing_here {
+  margin-top: 30px;
+  letter-spacing: 1.5px;
+  font-weight: 100;
+}
+
+
+// Breakpoints
+
+@media(max-width: 767px) {
+  .container-fluid > .navbar-header,
+  .navbar_link_list {
+    display: inline-block;
+    margin: 0;
+    vertical-align: bottom;
+  }
+
+  .navbar_link_list, .navbar-nav {
+    margin: 0;
+  }
+
+  .simple-calendar {
+    width: 700px;
+    margin: 0 auto;
+  }
+
+  .main_container {
+    width: 700px;
+  }
+
+  .main_container + .row {
+    box-sizing: border-box;
+    margin: 0 20px;
+  }
+
+  .contacts_wrapper {
+    box-sizing: border-box;
+    margin: 20px 0 0 0;
+  }
+
+  .event_container {
+    width: 400px;
+  }
+
+  .form_container,
+  .show_content {
+    width: 100%;
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media(max-width: 725px) {
+  .container-fluid > .navbar-header .navbar-h2,
+  .container-fluid > .navbar-header .glyphicon-leaf {
+    font-size: 20px;
+  }
+
+  .navbar-default .navbar-nav li a {
+    margin: 15px 10px;
+    font-size: 13px;
+    box-sizing: border-box;
+  }
+
+  .container-fluid .btn-group a {
+    font-size: 13px;
+  }
+
+  .simple-calendar,
+  .main_container {
+    width: 600px;
+  }
+
+  .show_content h4 .header_strong,
+  .show_content h4 a {
+    display: block;
+    width: 100%;
+  }
+
+  .show_content h4 .header_strong {
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width: 620px) {
+  .container-fluid > .navbar-header .navbar-h2 {
+    display: none;
+  }
+
+  .simple-calendar {
+    width: 476px;
+  }
+
+  .simple-calendar .calendar-heading,
+  .simple-calendar .table thead,
+  .simple-calendar .table tbody {
+    width: 476px;
+    margin: 0 20px;
+  }
+
+  .simple-calendar .calendar-heading a:first-child {
+    margin-left: -20px;
+  }
+
+  .simple-calendar .calendar-heading .calendar-title + a {
+    margin-right: 20px;
+  }
+
+  .main_container {
+    width: 100%;
+    padding: 0 30px;
+    box-sizing: border-box;
+  }
+
+  .contact_container {
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .years_list {
+    padding-left: 0;
+  }
+
+  .event_container {
+    width: 300px;
+  }
+}
+
+@media(max-width: 500px) {
+  .container-fluid > .navbar-header .glyphicon-leaf {
+    font-size: 12px;
+  }
+
+  .navbar-default .navbar-nav li a {
+    margin: 15px 5px;
+    font-size: 11px;
+  }
+
+  .container-fluid .btn-group a {
+    font-size: 11px;
+  }
+}
+
+@media(max-width: 450px) {
+  .months_list {
+    padding-left: 20px;
+  }
+
+  .events_list {
+    padding-left: 20px;
+  }
+
+  .container-fluid .btn-group {
+    margin: 0;
+  }
+
+  .todo_button {
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width: 400px) {
+  .container-fluid > .navbar-header .glyphicon-leaf {
+    margin-right: 10px;
+  }
+
+  .event_container {
+    width: 250px;
+  }
+
+  .container-fluid .btn-group a {
+    padding: 0;
+  }
+
+  .container-fluid .btn-group ul li a {
+    padding: 0 20px;
+  }
+}
+
+@media(max-width: 360px) {
+  .container-fluid {
+    padding: 0 10px;
+  }
+
+  .navbar-default .navbar-nav li a {
+    margin: 15px 3px;
+    font-size: 10px;
+  }
+
+  .container-fluid .btn-group a {
+    font-size: 10px;
+  }
+
+  .form_button {
+    padding: 6px 0;
+    text-align: center;
+    width: 48%;
+  }
+}

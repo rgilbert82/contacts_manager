@@ -1,0 +1,15 @@
+<%= month_calendar(events: @all_events) do |date, all_events| %>
+  <%= date %>
+
+  <% all_events.each do |e| %>
+    <div>
+      <% if e.class.name == 'Note' %>
+        <small class='calendar_note_link'><b>Note:</b> <%= link_to e.title, note_path(e) %></small>
+      <% elsif e.class.name == 'Event' %>
+        <small><b class='calendar_event_link'>Event:</b> <%= link_to e.title, event_path(e) %></small>
+      <% else %>
+        <small><b class='calendar_todo_link'>Todo:</b> <%= link_to e.title, todo_path(e) %></small>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>

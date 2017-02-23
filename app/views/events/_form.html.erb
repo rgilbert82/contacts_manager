@@ -1,0 +1,31 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class='well form-group form_container'>
+  <%= form_for @event, html: { class: "event_form" } do |f| %>
+    <div class='control-group form_field'>
+      <%= f.label :title, class: 'form_label' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :location, class: 'form_label' %>
+      <%= f.text_field :location, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :description, class: 'form_label' %>
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :start_time, 'Starts', class: 'form_label' %>
+      <%= f.datetime_select :start_time, {}, {class: 'form-control date_select'} %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :end_time, 'Ends', class: 'form_label' %>
+      <%= f.datetime_select :end_time, {}, {class: 'form-control date_select'} %>
+    </div>
+    <hr/>
+    <div class='control-group'>
+      <%= f.submit (@event.new_record? ? 'Submit' : 'Update'), class: 'btn btn-primary form_button submit_button' %>
+      <%= link_to 'Cancel', (@event.new_record? ? events_path : event_path(@event)), class: 'btn btn-primary form_button cancel_button' %>
+    </div>
+  <% end %>
+</div>

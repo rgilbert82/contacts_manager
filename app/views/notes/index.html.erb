@@ -1,0 +1,35 @@
+<%= render 'shared/content_title', title: 'Notes' %>
+
+<div>
+  <%= link_to 'Add New Note', new_note_path %>
+</div>
+
+<% if @notes.length == 0 %>
+  <h4 class='nothing_here'>You have no notes</h4>
+<% end %>
+
+<ul class='years_list'>
+  <% @notes.reverse.map {|n| n.created_at.year }.uniq.each do |year| %>
+  <li>
+    <h3><%= year %></h3>
+    <ul class='months_list'>
+      <% @notes.select {|n| n.created_at.year == year }.map do |y|
+                            y.created_at.month
+                          end.uniq.each do |month| %>
+        <h4><%= Date::MONTHNAMES[month] %></h4>
+        <ul class='events_list'>
+          <% @notes.select {|n| n.created_at.year == year &&
+                                n.created_at.month == month}.each do |note| %>
+            <li class='well event_container'>
+              <h4><%= link_to note.title, note_path(note) %></h4>
+              <small><%= display_datetime(note.created_at) %></small>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </ul>
+  </li>
+  <% end %>
+</ul>
+
+<div class='trigger_notes'></div>

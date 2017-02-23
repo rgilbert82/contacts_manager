@@ -1,0 +1,23 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class='well form-group form_container'>
+  <%= form_for @user do |f| %>
+    <div class='control-group form_field'>
+      <%= f.label :username, class: 'form_label' %>
+      <%= f.text_field :username, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :password, class: 'form_label' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :time_zone, class: 'form_label' %>
+      <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones, {default: Time.zone.name}, {class: 'form-control timezone_select'} %>
+    </div>
+    <hr/>
+    <div class='control-group'>
+      <%= f.submit (@user.new_record? ? 'Register' : 'Update'), class: 'btn btn-primary form_button submit_button' %>
+      <%= link_to 'Cancel', root_path, class: 'btn btn-primary form_button cancel_button' %>
+    </div>
+  <% end %>
+</div>

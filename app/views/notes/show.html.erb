@@ -1,0 +1,17 @@
+<%= render 'shared/content_title', title: @note.title %>
+
+<div class="well span8 show_content">
+  <p><%= @body_with_links.html_safe %></p>
+  <hr/ class="show_break">
+  <h5><small><span class='created_span'>Created:</span> <%= display_datetime(@note.created_at) %></small></h5>
+  <% if @note.created_at != @note.updated_at %>
+    <h5><small><span class='created_span'>Updated:</span> <%= display_datetime(@note.updated_at) %></small></h5>
+  <% end %>
+</div>
+
+<div>
+  <%= link_to 'Edit Note', edit_note_path, class: 'btn btn-default edit_button' %>
+  <%= link_to 'Delete Note', @note,  method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default delete_button' %>
+</div>
+
+<div class='trigger_notes'></div>

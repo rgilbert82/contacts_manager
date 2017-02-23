@@ -1,0 +1,27 @@
+<%= render 'shared/errors', obj: @contact %>
+
+<div class='well form-group form_container'>
+  <%= form_for @contact do |f| %>
+    <div class='control-group form_field'>
+      <%= f.label :name, class: 'form_label' %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :email, class: 'form_label' %>
+      <%= f.text_field :email, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :phone, class: 'form_label' %>
+      <%= f.text_field :phone, maxlength: 10, class: 'form-control' %>
+    </div>
+    <div class='control-group form_field'>
+      <%= f.label :notes, class: 'form_label' %>
+      <%= f.text_area :notes, class: 'form-control' %>
+    </div>
+    <hr class='form_break'/>
+    <div class='control-group'>
+      <%= f.submit(@contact.new_record? ? 'Submit' : 'Update', class: 'btn btn-primary form_button submit_button') %>
+      <%= link_to 'Cancel', (@contact.new_record? ? contacts_path : contact_path(@contact)), class: 'btn btn-primary form_button cancel_button' %>
+    </div>
+  <% end %>
+</div>
