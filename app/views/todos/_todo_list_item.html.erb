@@ -1,0 +1,8 @@
+<h4><%= link_to todo.title, todo_path(todo) %></h4>
+<small><b>Due: </b><%= display_datetime(todo.start_time) %></small>
+<hr/ class="show_break">
+<% if todo.completed %>
+  <div><%= link_to 'Completed', toggle_todo_path(todo), remote: true, method: :post, class: 'btn btn-default incomplete_button' %></div>
+<% else %>
+  <div><%= link_to 'Incomplete', toggle_todo_path(todo), remote: true, method: :post, class: 'btn btn-primary complete_button' %></div>
+<% end %>

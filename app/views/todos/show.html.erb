@@ -1,4 +1,6 @@
-<%= render 'shared/content_title', {title: @todo.title, todo: @todo} %>
+<div class="todo_header_wrapper">
+  <%= render 'shared/content_title', {title: @todo.title, todo: @todo} %>
+</div>  
 
 <div class="well span8 show_content">
   <h4><strong class="header_strong">Due Date:</strong> <%= display_datetime(@todo.start_time) %></h4>
@@ -13,14 +15,8 @@
   <% end %>
 </div>
 
-<div>
-  <%= link_to 'Edit Todo', edit_todo_path, class: 'btn btn-default edit_button todo_button' %>
-  <% if @todo.completed %>
-    <%= link_to 'Mark as Incomplete', toggle_todo_path(@todo), method: :post, class: 'btn btn-default incomplete_button todo_button' %>
-  <% else %>
-    <%= link_to 'Mark as Complete', toggle_todo_path(@todo), method: :post, class: 'btn btn-default complete_button todo_button' %>
-  <% end %>
-  <%= link_to 'Delete Todo', @todo,  method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-default delete_button todo_button' %>
+<div class="show_todo_buttons">
+  <%= render "todo_buttons", todo: @todo %>
 </div>
 
 <div class='trigger_todos'></div>

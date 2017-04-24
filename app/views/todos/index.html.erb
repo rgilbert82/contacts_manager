@@ -20,15 +20,8 @@
         <ul class='events_list'>
           <% @todos.select {|t| t.start_time.year == year &&
                                 t.start_time.month == month}.each do |todo| %>
-            <li class='well event_container'>
-              <h4><%= link_to todo.title, todo_path(todo) %></h4>
-              <small><b>Due: </b><%= display_datetime(todo.start_time) %></small>
-              <hr/ class="show_break">
-              <% if todo.completed %>
-                <div><%= link_to 'Completed', toggle_todo_path(todo), method: :post, class: 'btn btn-default incomplete_button' %></div>
-              <% else %>
-                <div><%= link_to 'Incomplete', toggle_todo_path(todo), method: :post, class: 'btn btn-primary complete_button' %></div>
-              <% end %>
+            <li class='well event_container todo_container' data-id='<%= todo.id %>'>
+              <%= render 'todo_list_item', todo: todo %>
             </li>
           <% end %>
         </ul>

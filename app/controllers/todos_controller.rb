@@ -40,12 +40,11 @@ class TodosController < ApplicationController
 
   def toggle
     @todo.completed = !@todo.completed
+    @todo.save
 
-    if @todo.save
-      flash[:notice] = @todo.completed ? "Your Todo has been completed" : "Your Todo is incomplete"
+    respond_to do |format|
+      format.js
     end
-
-    redirect_to todos_path
   end
 
   def destroy

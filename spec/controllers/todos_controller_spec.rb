@@ -153,21 +153,15 @@ describe TodosController do
 
     it "marks the todo as completed" do
       session[:user_id] = alice.id
-      post :toggle, id: hello.id
+      xhr :post, :toggle, id: hello.id
       expect(hello.reload.completed).to be_truthy
     end
 
     it "marks the todo as incomplete" do
       session[:user_id] = alice.id
-      post :toggle, id: hello.id
-      post :toggle, id: hello.id
+      xhr :post, :toggle, id: hello.id
+      xhr :post, :toggle, id: hello.id
       expect(hello.reload.completed).to be_falsey
-    end
-
-    it "redirects to the todos page" do
-      session[:user_id] = alice.id
-      post :toggle, id: hello.id
-      expect(response).to redirect_to todos_path
     end
 
     it "redirects to the login page for unauthenticated users" do

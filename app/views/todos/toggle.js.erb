@@ -1,0 +1,7 @@
+var $todo = $("li.todo_container[data-id='<%= @todo.id %>']");
+var $todoHeader = $(".todo_header_wrapper");
+var $todoButtons = $(".show_todo_buttons");
+
+$todo.html("<%= j render partial: 'todo_list_item', locals: { todo: @todo } %>");
+$todoHeader.html("<%= j render partial: 'shared/content_title', locals: { title: @todo.title, todo: @todo } %>");
+$todoButtons.html("<%=  j render partial: 'todo_buttons', locals: { todo: @todo } %>");
